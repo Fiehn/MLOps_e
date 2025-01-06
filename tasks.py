@@ -6,6 +6,7 @@ WINDOWS = os.name == "nt"
 PROJECT_NAME = "mlops"
 PYTHON_VERSION = "3.11"
 
+
 # Setup commands
 @task
 def create_environment(ctx: Context) -> None:
@@ -15,6 +16,7 @@ def create_environment(ctx: Context) -> None:
         echo=True,
         pty=not WINDOWS,
     )
+
 
 @task
 def requirements(ctx: Context) -> None:
@@ -29,16 +31,23 @@ def dev_requirements(ctx: Context) -> None:
     """Install development requirements."""
     ctx.run('uv pip install -e .["dev"]', echo=True, pty=not WINDOWS)
 
+
 # Project commands
 @task
 def preprocess_data(ctx: Context) -> None:
     """Preprocess data."""
-    ctx.run(f"uv run src/{PROJECT_NAME}/data.py data/raw data/processed", echo=True, pty=not WINDOWS)
+    ctx.run(
+        f"uv run src/{PROJECT_NAME}/data.py data/raw data/processed",
+        echo=True,
+        pty=not WINDOWS,
+    )
+
 
 @task
 def train(ctx: Context) -> None:
     """Train model."""
     ctx.run(f"python src/{PROJECT_NAME}/train.py", echo=True, pty=not WINDOWS)
+
 
 @task
 def test(ctx: Context) -> None:
@@ -46,17 +55,31 @@ def test(ctx: Context) -> None:
     ctx.run("coverage run -m pytest tests/", echo=True, pty=not WINDOWS)
     ctx.run("coverage report -m", echo=True, pty=not WINDOWS)
 
+
 @task
 def docker_build(ctx: Context) -> None:
     """Build docker images."""
-    ctx.run("docker build -t train:latest . -f dockerfiles/train.dockerfile", echo=True, pty=not WINDOWS)
-    ctx.run("docker build -t api:latest . -f dockerfiles/api.dockerfile", echo=True, pty=not WINDOWS)
+    ctx.run(
+        "docker build -t train:latest . -f dockerfiles/train.dockerfile",
+        echo=True,
+        pty=not WINDOWS,
+    )
+    ctx.run(
+        "docker build -t api:latest . -f dockerfiles/api.dockerfile",
+        echo=True,
+        pty=not WINDOWS,
+    )
+
 
 # Documentation commands
 @task(dev_requirements)
 def build_docs(ctx: Context) -> None:
     """Build documentation."""
-    ctx.run("mkdocs build --config-file docs/mkdocs.yaml --site-dir build", echo=True, pty=not WINDOWS)
+    ctx.run(
+        "mkdocs build --config-file docs/mkdocs.yaml --site-dir build",
+        echo=True,
+        pty=not WINDOWS,
+    )
 
 
 @task(dev_requirements)

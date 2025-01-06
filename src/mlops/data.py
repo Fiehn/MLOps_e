@@ -7,12 +7,19 @@ def normalize(images: torch.Tensor) -> torch.Tensor:
     return (images - images.mean()) / images.std()
 
 
-def preprocess_data(raw_dir: str = typer.Argument("data/raw"), processed_dir: str = typer.Argument("data/processed")) -> None:
+def preprocess_data(
+    raw_dir: str = typer.Argument("data/raw"),
+    processed_dir: str = typer.Argument("data/processed"),
+) -> None:
     """Process raw data and save it to processed directory."""
     train_images, train_target = [], []
     for i in range(6):
-        train_images.append(torch.load(f"{raw_dir}/train_images_{i}.pt"), weights_only=True)
-        train_target.append(torch.load(f"{raw_dir}/train_target_{i}.pt"), weights_only=True)
+        train_images.append(
+            torch.load(f"{raw_dir}/train_images_{i}.pt"), weights_only=True
+        )
+        train_target.append(
+            torch.load(f"{raw_dir}/train_target_{i}.pt"), weights_only=True
+        )
     train_images = torch.cat(train_images)
     train_target = torch.cat(train_target)
 
