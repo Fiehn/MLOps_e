@@ -19,21 +19,21 @@ def create_environment(ctx: Context) -> None:
 @task
 def requirements(ctx: Context) -> None:
     """Install project requirements."""
-    ctx.run("pip install -U pip setuptools wheel", echo=True, pty=not WINDOWS)
-    ctx.run("pip install -r requirements.txt", echo=True, pty=not WINDOWS)
-    ctx.run("pip install -e .", echo=True, pty=not WINDOWS)
+    ctx.run("uv pip install -U pip setuptools wheel", echo=True, pty=not WINDOWS)
+    ctx.run("uv pip install -r requirements.txt", echo=True, pty=not WINDOWS)
+    ctx.run("uv pip install -e .", echo=True, pty=not WINDOWS)
 
 
 @task(requirements)
 def dev_requirements(ctx: Context) -> None:
     """Install development requirements."""
-    ctx.run('pip install -e .["dev"]', echo=True, pty=not WINDOWS)
+    ctx.run('uv pip install -e .["dev"]', echo=True, pty=not WINDOWS)
 
 # Project commands
 @task
 def preprocess_data(ctx: Context) -> None:
     """Preprocess data."""
-    ctx.run(f"python src/{PROJECT_NAME}/data.py data/raw data/processed", echo=True, pty=not WINDOWS)
+    ctx.run(f"uv run src/{PROJECT_NAME}/data.py data/raw data/processed", echo=True, pty=not WINDOWS)
 
 @task
 def train(ctx: Context) -> None:
