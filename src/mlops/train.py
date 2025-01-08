@@ -2,8 +2,8 @@ import torch
 import typer
 import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader, TensorDataset
-from .data import corrupt_mnist
-from .model import Model
+from data import corrupt_mnist
+from model import Model
 
 app = typer.Typer()
 
