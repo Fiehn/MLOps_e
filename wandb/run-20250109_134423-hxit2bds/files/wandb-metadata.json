@@ -1,0 +1,31 @@
+{
+  "os":  "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python":  "CPython 3.12.3",
+  "startedAt":  "2025-01-09T12:44:24.006579Z",
+  "program":  "/home/rfiehn/project/mlops/src/mlops/train.py",
+  "codePath":  "src/mlops/train.py",
+  "git":  {
+    "remote":  "https://github.com/Fiehn/MLOps_e.git",
+    "commit":  "bac18ae6774abe70ffbfbb12de5c2b8ce441328e"
+  },
+  "email":  "rasmuslf@gmail.com",
+  "root":  "/home/rfiehn/project/mlops",
+  "host":  "DESKTOP-QD5NC0B",
+  "executable":  "/home/rfiehn/project/mlops/.venv/bin/python3",
+  "codePathLocal":  "src/mlops/train.py",
+  "cpu_count":  4,
+  "cpu_count_logical":  8,
+  "disk":  {
+    "/":  {
+      "total":  "1081101176832",
+      "used":  "19120824320"
+    }
+  },
+  "memory":  {
+    "total":  "4009779200"
+  },
+  "cpu":  {
+    "count":  4,
+    "countLogical":  8
+  }
+}

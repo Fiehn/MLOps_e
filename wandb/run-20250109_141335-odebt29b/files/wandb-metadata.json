@@ -1,0 +1,86 @@
+{
+    "os": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "CPython 3.12.3",
+    "heartbeatAt": "2025-01-09T13:13:37.486583",
+    "startedAt": "2025-01-09T13:13:35.801130",
+    "docker": null,
+    "args": [
+        "service",
+        "--debug",
+        "--port-filename",
+        "/tmp/tmpwwwwhul6/port-71157.txt",
+        "--pid",
+        "71157"
+    ],
+    "state": "running",
+    "program": "/home/rfiehn/project/mlops/src/mlops/train.py",
+    "codePathLocal": "src/mlops/train.py",
+    "codePath": "src/mlops/train.py",
+    "git": {
+        "remote": "https://github.com/Fiehn/MLOps_e.git",
+        "commit": "bac18ae6774abe70ffbfbb12de5c2b8ce441328e"
+    },
+    "email": "rasmuslf@gmail.com",
+    "root": "/home/rfiehn/project/mlops",
+    "host": "DESKTOP-QD5NC0B",
+    "username": null,
+    "executable": "/home/rfiehn/project/mlops/.venv/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1991.999,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1991.999,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1991.999,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1991.999,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1991.999,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1991.999,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1991.999,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1991.999,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 1991.999,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1081101176832,
+            "used": 19122860032
+        }
+    },
+    "memory": {
+        "total": 4009779200
+    }
+}

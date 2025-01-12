@@ -1,6 +1,6 @@
 import torch
 import typer
-
+import pytorch_lightning as pl
 
 def normalize(images: torch.Tensor) -> torch.Tensor:
     """Normalize images."""
@@ -51,6 +51,11 @@ def corrupt_mnist() -> tuple[torch.utils.data.Dataset, torch.utils.data.Dataset]
     test_set = torch.utils.data.TensorDataset(test_images, test_target)
     return train_set, test_set
 
+def lightning_data(batch_size: int = 100) -> tuple[torch.utils.data.DataLoader, torch.utils.data.DataLoader]:
+    train_set, test_set = corrupt_mnist()
+    train_loader = torch.utils.data.DataLoader(train_set, batch_size=batch_size, shuffle=True)
+    test_loader = torch.utils.data.DataLoader(test_set, batch_size=batch_size, shuffle=False)
+    return train_loader, test_loader
 
 if __name__ == "__main__":
     typer.run(preprocess_data)
