@@ -18,4 +18,3 @@ RUN pip install uv
 RUN uv sync --no-cache
 
 ENTRYPOINT ["uv","run", "mlops/train.py"]
-

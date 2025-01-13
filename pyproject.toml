@@ -33,6 +33,11 @@ dependencies = [
 lint.select = ["I"]
 line-length = 120
 
+[dependency-groups]
+dev = [
+    "pre-commit>=4.0.1",
+]
+
 #[project.scripts]
 #train = "mlops.train:train"
 #evaluate = "mlops.evaluate:evaluate"

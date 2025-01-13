@@ -27,7 +27,7 @@ DEVICE = torch.device(
 #     lr = learning_rate
 #     # init wandb
 #     wandb.init(project="corrupt-mnist", config={"lr": lr, "epochs": epochs, "batch_size": batch_size})
-    
+
 #     # Load data
 #     train_set, test_set = corrupt_mnist()
 #     train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True)
@@ -74,7 +74,7 @@ DEVICE = torch.device(
 #         avg_loss = total_loss / (i + 1)
 #         wandb.log({"epoch": epoch, "loss": avg_loss})
 #     # Test the model
-    
+
 #     print("Training Completed")
 #     fig, axs = plt.subplots(1, 2, figsize=(15, 5))
 #     axs[0].plot(statics["train_loss"])
@@ -101,12 +101,12 @@ def train(
     epochs: int = typer.Option(10, "--epochs", "-e", help="Number of epochs for training"),
     batch_size: int = typer.Option(100, "--batch_size", "-bs", help="Batch size for training"),
 ) -> None:
-    
+
     logger = WandbLogger(project="corrupt-mnist", config={"lr": learning_rate, "epochs": epochs, "batch_size": batch_size})
 
     train_loader, test_loader = lightning_data(batch_size)
     model = Model()
-    
+
     checkpoint_callback = pl.callbacks.ModelCheckpoint(
         dirpath="models", filename="best-checkpoint", monitor="val_loss", mode="min"
     )

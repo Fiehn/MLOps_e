@@ -57,11 +57,11 @@ def validation(model: nn.Module, testloader: torch.utils.data.DataLoader, criter
     return test_loss, accuracy
 
 
-def train(model: nn.Module, 
-          trainloader: torch.utils.data.DataLoader, 
-          testloader: torch.utils.data.DataLoader, 
-          criterion: Callable | nn.Module, 
-          optimizer: None | torch.optim.Optimizer =None, 
+def train(model: nn.Module,
+          trainloader: torch.utils.data.DataLoader,
+          testloader: torch.utils.data.DataLoader,
+          criterion: Callable | nn.Module,
+          optimizer: None | torch.optim.Optimizer =None,
           epochs: int =5, print_every: int =40) -> None:
     """Train a PyTorch Model."""
     if optimizer is None:

@@ -53,7 +53,7 @@ class Model(pl.LightningModule):
 
     def criterion(self, preds, target):
         return nn.CrossEntropyLoss()(preds, target)
-    
+
     def training_step(self, batch, batch_idx):
         data, target = batch
         preds = self(data)
