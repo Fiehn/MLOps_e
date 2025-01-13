@@ -1,5 +1,6 @@
 [core]
     remote = remote_storage
+    autostage = true
 ['remote "remote_storage"']
     url = gs://corrupt_mnist_test/
     version_aware = true
