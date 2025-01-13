@@ -178,4 +178,8 @@ cython_debug/
 
 
 # Data
-data/*
+data/raw/*
+data/processed/test_images.pt
+data/processed/test_labels.pt
+data/processed/train_images.pt
+data/processed/train_labels.pt
